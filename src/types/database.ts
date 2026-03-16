@@ -193,6 +193,7 @@ export interface Database {
       orcamento_materiais: { Row: OrcamentoMaterial; Insert: Omit<OrcamentoMaterial, 'id' | 'created_at'>;               Update: Partial<Omit<OrcamentoMaterial, 'id' | 'created_at'>> }
       carga:               { Row: Carga;             Insert: Omit<Carga, 'id' | 'created_at'>;                           Update: Partial<Omit<Carga, 'id' | 'created_at'>> }
       datas_uteis:         { Row: DataUtil;          Insert: Omit<DataUtil, 'id'>;                                       Update: Partial<Omit<DataUtil, 'id'>> }
+      anexos_os:           { Row: { id: number; os_id: number; nome_arquivo: string; storage_path: string; tamanho: number | null; created_at: string }; Insert: { os_id: number; nome_arquivo: string; storage_path: string; tamanho: number | null }; Update: never }
     }
   }
 }
