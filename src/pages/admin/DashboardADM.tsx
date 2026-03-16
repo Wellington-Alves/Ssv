@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../lib/supabaseClient'
 import {
-  ClipboardList, Send, CheckCircle,
-  Plus, Loader2, ArrowRight, TrendingUp,
-  AlertCircle, Search
+  ClipboardList, Send,
+  Plus, Loader2, ArrowRight, TrendingUp, Search
 } from 'lucide-react'
 
 interface OSCounts {

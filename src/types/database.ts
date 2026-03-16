@@ -5,12 +5,14 @@
 export type Perfil = 'admin' | 'orcamentista' | 'pcp' | 'gerente' | 'diretoria'
 
 export type StatusOS =
-  | 'Cadastrado'
-  | 'Orçado'
-  | 'Enviado ao cliente'
-  | 'Aprovado'
-  | 'Reprovado'
-  | 'Concluído'
+  | 'liberado_orcamento'
+  | 'processo_concluido'
+  | 'orcado'
+  | 'enviado'
+  | 'aprovado'
+  | 'reprovado'
+  | 'em_producao'
+  | 'concluido'
 
 export type StatusOperacao = 'pendente' | 'em_andamento' | 'concluida'
 
