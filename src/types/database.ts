@@ -72,6 +72,7 @@ export interface OrdemServico {
   email_enviado: boolean
   email_enviado_em: string | null
   criado_por: string | null
+  observacao: string | null
   created_at: string
   updated_at: string
 }
@@ -136,6 +137,21 @@ export interface OrcamentoMaterial {
   created_at: string
 }
 
+export interface Orcamento {
+  id: number
+  os_id: number
+  custo_maquinas: number
+  custo_materiais: number
+  subtotal: number
+  margem: number
+  comissao: number
+  impostos: number
+  plus: number
+  total: number
+  criado_por: string | null
+  created_at: string
+}
+
 export interface Carga {
   id: number
   os_id: number
@@ -177,8 +193,8 @@ export type OrdemServicoPayload    = Omit<OrdemServico,    'id' | 'created_at' |
 export type PosicaoPayload         = Omit<Posicao,         'id' | 'created_at' | 'updated_at'>
 export type OperacaoPosicaoPayload = Omit<OperacaoPosicao, 'id' | 'created_at' | 'updated_at'>
 
-// --- Database type para createClient<Database> ---
 export interface Database {
+  "PostgrestVersion": "12"
   public: {
     Tables: {
       profiles:            { Row: Profile;           Insert: Omit<Profile, 'created_at'>;                                Update: Partial<Omit<Profile, 'id'>> }
@@ -191,9 +207,12 @@ export interface Database {
       posicoes:            { Row: Posicao;           Insert: Omit<Posicao, 'id' | 'created_at' | 'updated_at'>;          Update: Partial<Omit<Posicao, 'id' | 'created_at'>> }
       operacoes_posicao:   { Row: OperacaoPosicao;   Insert: Omit<OperacaoPosicao, 'id' | 'created_at' | 'updated_at'>; Update: Partial<Omit<OperacaoPosicao, 'id' | 'created_at'>> }
       orcamento_materiais: { Row: OrcamentoMaterial; Insert: Omit<OrcamentoMaterial, 'id' | 'created_at'>;               Update: Partial<Omit<OrcamentoMaterial, 'id' | 'created_at'>> }
+      orcamentos:          { Row: Orcamento;         Insert: Omit<Orcamento, 'id' | 'created_at'>;                       Update: Partial<Omit<Orcamento, 'id' | 'created_at'>> }
       carga:               { Row: Carga;             Insert: Omit<Carga, 'id' | 'created_at'>;                           Update: Partial<Omit<Carga, 'id' | 'created_at'>> }
       datas_uteis:         { Row: DataUtil;          Insert: Omit<DataUtil, 'id'>;                                       Update: Partial<Omit<DataUtil, 'id'>> }
       anexos_os:           { Row: { id: number; os_id: number; nome_arquivo: string; storage_path: string; tamanho: number | null; created_at: string }; Insert: { os_id: number; nome_arquivo: string; storage_path: string; tamanho: number | null }; Update: never }
     }
   }
 }
+
+
