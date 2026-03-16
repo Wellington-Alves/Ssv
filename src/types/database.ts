@@ -2,7 +2,7 @@
 // types/database.ts — Tipos espelho do banco SSV (Supabase)
 // ============================================================
 
-export type Perfil = 'admin' | 'orcamentista' | 'pcp' | 'gerente'
+export type Perfil = 'admin' | 'orcamentista' | 'pcp' | 'gerente' | 'diretoria'
 
 export type StatusOS =
   | 'Cadastrado'
